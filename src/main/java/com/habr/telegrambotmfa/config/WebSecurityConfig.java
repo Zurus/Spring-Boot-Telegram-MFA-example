@@ -67,7 +67,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
     public CustomAuthenticationProvider customAuthenticationProvider() {
-        var provider = new CustomAuthenticationProvider(mfaCommand);
+        CustomAuthenticationProvider provider = new CustomAuthenticationProvider(mfaCommand);
         provider.setUserDetailsService(userService);
         provider.setPasswordEncoder(passwordEncoder());
         return provider;

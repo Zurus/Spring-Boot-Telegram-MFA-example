@@ -24,7 +24,7 @@ public class UserController {
     @PostMapping("/register")
     public User registerUser(@RequestBody User user) {
         log.info("Register user {}", user);
-        user.setRoles(Set.of(User.Role.ROLE_USER));
+        //user.setRoles(Set.of(User.Role.ROLE_USER));
         return userService.create(user);
     }
 }

@@ -2,8 +2,8 @@ package com.habr.telegrambotmfa;
 
 import com.habr.telegrambotmfa.botCommands.ConnectAccountCommand;
 import com.habr.telegrambotmfa.botCommands.MfaCommand;
+import com.habr.telegrambotmfa.config.SettingsSource;
 import org.springframework.context.annotation.Lazy;
-import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.DefaultBotOptions;
 import org.telegram.telegrambots.extensions.bots.commandbot.TelegramLongPollingCommandBot;
@@ -21,10 +21,12 @@ public class TelegramBot extends TelegramLongPollingCommandBot {
     private MfaCommand mfaCommand;
     private String botUsername;
     private String botToken;
+    private SettingsSource settingsSource;
 
-    public TelegramBot(Environment env, ConnectAccountCommand connectAccountCommand, @Lazy MfaCommand mfaCommand) throws TelegramApiException {
+    public TelegramBot(ConnectAccountCommand connectAccountCommand, @Lazy MfaCommand mfaCommand, SettingsSource settingsSource) throws TelegramApiException {
         super(ApiContext.getInstance(DefaultBotOptions.class), false);
-        this.botToken = env.getRequiredProperty("telegram.bot.token");
+        this.settingsSource = settingsSource;
+        this.botToken = this.settingsSource.getBotToken();//env.getRequiredProperty("telegram.bot.token");
         this.mfaCommand = mfaCommand;
         this.botUsername = getMe().getUserName();
 

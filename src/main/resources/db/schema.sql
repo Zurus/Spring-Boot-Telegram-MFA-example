@@ -23,3 +23,11 @@ CREATE TABLE users_roles
     FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE,
     UNIQUE (user_id, role)
 );
+
+CREATE TABLE settings
+(
+    id    SERIAL       NOT NULL,
+    key VARCHAR(255) NOT NULL,
+    value VARCHAR(255) NOT NULL,
+    primary key (id)
+);
