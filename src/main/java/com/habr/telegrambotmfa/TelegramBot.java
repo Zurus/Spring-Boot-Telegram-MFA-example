@@ -26,9 +26,9 @@ public class TelegramBot extends TelegramLongPollingCommandBot {
     public TelegramBot(ConnectAccountCommand connectAccountCommand, @Lazy MfaCommand mfaCommand, SettingsSource settingsSource) throws TelegramApiException {
         super(ApiContext.getInstance(DefaultBotOptions.class), false);
         this.settingsSource = settingsSource;
-        this.botToken = this.settingsSource.getBotToken();//env.getRequiredProperty("telegram.bot.token");
+        this.botToken = "5596926556:AAFHZqdaMFrDZ1Dm7fxw404RodHM3p01dzc"; //this.settingsSource.getBotToken();//env.getRequiredProperty("telegram.bot.token");
         this.mfaCommand = mfaCommand;
-        this.botUsername = getMe().getUserName();
+        this.botUsername = "SecureEnvBot";//getMe().getUserName();
 
         register(connectAccountCommand);
     }
