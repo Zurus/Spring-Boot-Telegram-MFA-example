@@ -132,12 +132,13 @@
                 <configuration>
                     <source>1.8</source> <!-- depending on your project. In this example, Java 11 is used -->
                     <target>1.8</target> <!-- depending on your project. In this example, Java 11 is used -->
-                    <excludes>
-                        <exclude>
+                    <annotationProcessorPaths>
+                        <path>
                             <groupId>org.projectlombok</groupId>
                             <artifactId>lombok</artifactId>
-                        </exclude>
-                    </excludes>
+                            <version>${lombok.version}</version>
+                        </path>
+                    </annotationProcessorPaths>
                 </configuration>
 
             </plugin>
