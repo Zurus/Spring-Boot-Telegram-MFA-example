@@ -1,4 +1,4 @@
-package com.habr.telegrambotmfa.config;
+package com.habr.telegrambotmfa.settings;
 
 public interface SettingsSource {
      String BOT_NAME = "bot.name";

@@ -44,7 +44,7 @@
         <appender-ref ref="console"/>
         <!--		<appender-ref ref="rollingFile" />-->
     </root>
-    <logger name="ru.secure_environment.arm" level="INFO">
+    <logger name="com.habr.telegrambotmfa" level="INFO">
         <appender-ref ref="console"/>
         <appender-ref ref="rollingFile"/>
     </logger>

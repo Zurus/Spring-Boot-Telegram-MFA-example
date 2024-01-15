@@ -1,5 +1,6 @@
 package com.habr.telegrambotmfa.models;
 
+import com.habr.telegrambotmfa.models.common.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

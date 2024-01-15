@@ -1,4 +1,4 @@
-package com.habr.telegrambotmfa.models;
+package com.habr.telegrambotmfa.models.common;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.util.Assert;

@@ -1,4 +1,4 @@
-package com.habr.telegrambotmfa.config;
+package com.habr.telegrambotmfa.settings;
 
 import com.habr.telegrambotmfa.services.SettingsService;
 import lombok.AllArgsConstructor;

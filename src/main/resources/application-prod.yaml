@@ -1,6 +1,6 @@
 spring:
   jpa:
-    show-sql: true
+    show-sql: false
     open-in-view: false
     hibernate:
       ddl-auto: none
@@ -13,15 +13,11 @@ spring:
         jdbc.batch_size: 20
     # https://stackoverflow.com/a/67678945/548473
     defer-datasource-initialization: true
+    database: postgresql
   datasource:
-    url: jdbc:h2:mem:telegram-event
-    username: sa
-    password:
-    driver-class-name: org.h2.Driver
-  h2.console.enabled: true
-  sql:
-    init:
-      mode: always
-      schema-locations: classpath:/db/schema.sql
-      data-locations: classpath:/db/data.sql
-      platform: h2
+    url: jdbc:postgresql://localhost:5432/secure_env
+    username: postgres
+    password: postgres
+#    username: access_su
+#    password: Jnnheljdghfdtlys[?
+    driver-class-name: org.postgresql.Driver

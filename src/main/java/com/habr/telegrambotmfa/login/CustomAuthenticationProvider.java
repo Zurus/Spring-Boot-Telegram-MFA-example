@@ -2,7 +2,9 @@ package com.habr.telegrambotmfa.login;
 
 import com.habr.telegrambotmfa.AuthorizedUser;
 import com.habr.telegrambotmfa.botCommands.MfaCommand;
+import com.habr.telegrambotmfa.exceptions.RequireTelegramMfaException;
 import com.habr.telegrambotmfa.models.User;
+import lombok.AllArgsConstructor;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.core.AuthenticationException;
@@ -11,12 +13,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.servlet.http.HttpServletRequest;
 
+@AllArgsConstructor
 public class CustomAuthenticationProvider extends DaoAuthenticationProvider {
     private MfaCommand mfaCommand;
-
-    public CustomAuthenticationProvider(MfaCommand mfaCommand) {
-        this.mfaCommand = mfaCommand;
-    }
 
     @Override
     protected void additionalAuthenticationChecks(UserDetails userDetails, UsernamePasswordAuthenticationToken authentication) throws AuthenticationException {
