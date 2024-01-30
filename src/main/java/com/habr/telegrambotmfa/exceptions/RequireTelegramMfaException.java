@@ -1,4 +1,4 @@
-package com.habr.telegrambotmfa.login;
+package com.habr.telegrambotmfa.exceptions;
 
 import org.springframework.security.core.AuthenticationException;
 

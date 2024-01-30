@@ -1,6 +1,7 @@
 package com.habr.telegrambotmfa.login;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.habr.telegrambotmfa.exceptions.RequireTelegramMfaException;
 import org.apache.commons.codec.CharEncoding;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;

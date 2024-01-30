@@ -63,8 +63,10 @@ public class MfaCommand {
         Message message = callbackQuery.getMessage();
         AuthInfo authInfo = connectingUser.remove(message.getChatId());
 
-        EditMessageText editMessageText = new EditMessageText()
-                .setChatId(message.getChatId())
+        EditMessageText editMessageText = new EditMessageText();
+        editMessageText
+                .setChatId(String.valueOf(message.getChatId()));
+        editMessageText
                 .setMessageId(message.getMessageId());
 
         AuthenticationInfo info = new AuthenticationInfo();
@@ -105,10 +107,14 @@ public class MfaCommand {
                 )
         );
 
-        SendMessage sendMessage = new SendMessage()
-                .setChatId(user.getTelegramChatId())
-                .setText("Подтвердите вход в аккаунт <b>" + user.getUsername() + "</b>")
-                .setParseMode("HTML")
+        SendMessage sendMessage = new SendMessage();
+        sendMessage
+                .setChatId(String.valueOf(user.getTelegramChatId()));
+        sendMessage
+                .setText("Подтвердите вход в аккаунт <b>" + user.getUsername() + "</b>");
+        sendMessage
+                .setParseMode("HTML");
+        sendMessage
                 .setReplyMarkup(markup);
 
         try {

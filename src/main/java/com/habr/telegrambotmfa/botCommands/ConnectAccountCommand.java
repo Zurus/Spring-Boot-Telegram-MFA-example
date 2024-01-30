@@ -26,8 +26,10 @@ public class ConnectAccountCommand extends BotCommand {
         String username = strings[0];
         userService.connectBot(username, chat.getId());
 
-        SendMessage message = new SendMessage()
-                .setChatId(chat.getId())
+        SendMessage message = new SendMessage();
+        message
+                .setChatId(String.valueOf(chat.getId()));
+        message
                 .setText("Вы успешно подключили бота!");
         try {
             sender.execute(message);

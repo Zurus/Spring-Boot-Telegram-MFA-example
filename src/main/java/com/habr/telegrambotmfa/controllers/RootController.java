@@ -4,6 +4,8 @@ import com.habr.telegrambotmfa.AuthorizedUser;
 import com.habr.telegrambotmfa.TelegramBot;
 import com.habr.telegrambotmfa.models.User;
 import com.habr.telegrambotmfa.services.UserService;
+import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -12,23 +14,21 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 @Controller
+@AllArgsConstructor
+@Slf4j
 public class RootController {
     private UserService userService;
     private TelegramBot telegramBot;
 
-    @Autowired
-    public RootController(UserService userService, TelegramBot telegramBot) {
-        this.userService = userService;
-        this.telegramBot = telegramBot;
-    }
-
     @GetMapping("/login")
     public String login() {
+        log.info("Loggin");
         return "login";
     }
 
     @GetMapping("/")
     public String index(Model model) throws TelegramApiException {
+        log.info("initialization");
         AuthorizedUser auth = (AuthorizedUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Integer userId = auth.getUser().getId();
         User user = userService.getById(userId);

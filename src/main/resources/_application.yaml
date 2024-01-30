@@ -1,0 +1,38 @@
+server:
+  port: 80
+
+  servlet:
+    encoding:
+      charset: UTF-8 # Charset of HTTP requests and responses. Added to the "Content-Type" header if not set explicitly
+      enabled: true # Enable http encoding support
+      force: true
+
+  error:
+    include-message: always
+#  https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+spring:
+  profiles:
+    active: dev
+
+  #https://nsergey:com/jackson-annotations/:
+  #    Jackson Serialization Issue Resolver
+  jackson:
+    visibility.field: any
+    visibility.getter: none
+    visibility.setter: none
+    visibility.is-getter: none
+    #  https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-application-properties.html#security-properties
+
+logging:
+  config: classpath:logback.xml
+  #  level:
+  #    root: WARN
+  #    ru.secure_environment.arm: INFO
+  #    org.springframework.security.web.FilterChainProxy: DEBUG
+
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+##        include: "*"
+#          exclude: "env,beans"
